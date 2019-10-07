@@ -1,0 +1,63 @@
+window.WORKSPACE_CAROUSEL_DATA = [
+  {
+    'title': '创建组件和页面，快速绘制原型',
+    'type': 'video',
+    'sources': [
+      { type: 'video/webm', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_1.webm' },
+      { type: 'video/mp4', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_1.mp4' }
+    ],
+    'description': '<p>在页面列表中新建多级页面，从组件库拖拽组件到画布，搭建界面布局及结构</p><p>选中组件在设置面板及工具栏中调整外观样式或布局排列</p>'
+  },
+  {
+    'title': '拖拽创建链接，设置交互动效',
+    'type': 'video',
+    'sources': [
+      { type: 'video/webm', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_2.webm' },
+      { type: 'video/mp4', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_2.mp4' }
+    ],
+    'description': '<p>选中组件后，拖拽圆形按钮到目标页面即可创建交互链接</p><p>在链接设置面板中设置触发手势、转场动画，优化交互动效</p>'
+  },
+  {
+    'title': '多设备预览、一键分享、离线文件下载',
+    'type': 'video',
+    'sources': [
+      { type: 'video/webm', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_3.webm' },
+      { type: 'video/mp4', url: 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_3.mp4' }
+    ],
+    'description': '<p>原型制作过程中，不但可以在线检查原型在 PC 或移动设备上的真实演示效果，还可以将原型一键分享给您的同事或朋友，第一时间同步设计成果。</p>'
+  },
+  {
+    'title': '开启高效创作之旅',
+    'type': 'image',
+    'imgUrl': 'https://s3.cn-north-1.amazonaws.com.cn/modao/videos/beginner_guide/beginner_guide_resource_4.png',
+    'description': '<p>您已经掌握了墨刀基础功能使用，若遇到问题可以点击帮助获取更多支持</p><p>即刻开启你的墨刀创作之旅吧！</p>',
+  }
+]
+
+window.ORG_UPGRADE_TIP_DATA = [
+  {
+    'title': '独立分区 按需使用',
+    'type': 'image',
+    'imgUrl': 'https://s3.cn-north-1.amazonaws.com.cn/modao/images/carousel/org/org_upgrade_1.png',
+    'description': '<p>您既可在「个人空间」独立创作</p><p>也可和团队/组织在企业版的「企业空间」协作配合</p>',
+  },
+  {
+    'title': '项目管理+成员权限',
+    'type': 'image',
+    'imgUrl': 'https://s3.cn-north-1.amazonaws.com.cn/modao/images/carousel/org/org_upgrade_2.png',
+    'description': '<p>企业版独有项目管理、角色管理、数据统计功能</p><p>多级权限控制：轻松管人、管项目、把控进度</p>'
+  },
+  {
+    'title': '企业版可灵活配置席位',
+    'type': 'image',
+    'imgUrl': 'https://s3.cn-north-1.amazonaws.com.cn/modao/images/carousel/org/org_upgrade_3.png',
+    'description': '<p>企业成员席位支持随时新增，根据当前企业规模付费</p><p>资源配置更灵活合理</p>'
+  },
+  {
+    'title': '',
+    'type': 'image',
+    'imgUrl': 'https://cdn.modao.cc/images/carousel/org/org_upgrade_4.png',
+    'description': "<ol class='zh_ol'><li>原协同版及团队版付费权益自动迁移到创建的第一个企业中，与原到期时间相同。</li><li>升级新版后将不能回退到旧版</li><li>了解更多<a target='_blank' href='https://modao.cc/posts/13688'>新版功能及说明</a></li>",
+    'href': 'https://org.modao.cc/dashboard'
+  }
+]
