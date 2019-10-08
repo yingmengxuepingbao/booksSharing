@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.AddressMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Address">
+        <id column="address_id" property="addressId" />
+        <result column="u_id" property="uId" />
+        <result column="address_uname" property="addressUname" />
+        <result column="phone" property="phone" />
+        <result column="address_content" property="addressContent" />
+        <result column="address_details" property="addressDetails" />
+        <result column="address_default" property="addressDefault" />
+        <result column="address_abel" property="addressAbel" />
+        <result column="setup_time" property="setupTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="Column_11" property="column11" />
+        <result column="Column_12" property="column12" />
+        <result column="Column_13" property="column13" />
+    </resultMap>
+
+</mapper>

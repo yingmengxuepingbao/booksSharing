@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.UsersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Users">
+        <id column="u_id" property="uId" />
+        <result column="u_nickname" property="uNickname" />
+        <result column="u_name" property="uName" />
+        <result column="u_password" property="uPassword" />
+        <result column="u_phone" property="uPhone" />
+        <result column="u_email" property="uEmail" />
+        <result column="u_sex" property="uSex" />
+        <result column="u_age" property="uAge" />
+        <result column="u_parent_id" property="uParentId" />
+        <result column="sign_day" property="signDay" />
+        <result column="u_role" property="uRole" />
+        <result column="u_wx_id" property="uWxId" />
+        <result column="u_qq_id" property="uQqId" />
+        <result column="u_setup_time" property="uSetupTime" />
+        <result column="u_update_time" property="uUpdateTime" />
+        <result column="Column_17" property="column17" />
+        <result column="Column_18" property="column18" />
+        <result column="Column_19" property="column19" />
+    </resultMap>
+
+</mapper>

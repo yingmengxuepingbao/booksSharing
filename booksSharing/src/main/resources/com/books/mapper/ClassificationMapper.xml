@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.ClassificationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Classification">
+        <id column="classification_id" property="classificationId" />
+        <result column="classification_name" property="classificationName" />
+        <result column="classification_pid" property="classificationPid" />
+        <result column="setupTime" property="setupTime" />
+        <result column="update_Time" property="updateTime" />
+        <result column="Column_6" property="column6" />
+        <result column="Column_7" property="column7" />
+        <result column="Column_8" property="column8" />
+    </resultMap>
+
+</mapper>

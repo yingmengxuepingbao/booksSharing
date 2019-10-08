@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.PicturesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Pictures">
+        <id column="pic_id" property="picId" />
+        <result column="shop_id" property="shopId" />
+        <result column="cb_id" property="cbId" />
+        <result column="pic_content" property="picContent" />
+        <result column="pic_sort" property="picSort" />
+        <result column="setup_time" property="setupTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="Column_7" property="column7" />
+        <result column="Column_8" property="column8" />
+        <result column="Column_9" property="column9" />
+    </resultMap>
+
+</mapper>

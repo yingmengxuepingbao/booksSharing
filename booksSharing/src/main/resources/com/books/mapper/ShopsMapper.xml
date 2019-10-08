@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.ShopsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Shops">
+        <id column="shop_id" property="shopId" />
+        <result column="u_id" property="uId" />
+        <result column="shop_name" property="shopName" />
+        <result column="shop_address" property="shopAddress" />
+        <result column="shop_phone" property="shopPhone" />
+        <result column="shop_state" property="shopState" />
+        <result column="shop_signing" property="shopSigning" />
+        <result column="bank_code" property="bankCode" />
+        <result column="shop_logo" property="shopLogo" />
+        <result column="authentication_method" property="authenticationMethod" />
+        <result column="authentication_id" property="authenticationId" />
+        <result column="Column_10" property="column10" />
+        <result column="Column_11" property="column11" />
+        <result column="Column_12" property="column12" />
+    </resultMap>
+
+</mapper>

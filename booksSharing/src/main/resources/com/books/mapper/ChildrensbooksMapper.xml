@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyx.books.mapper.ChildrensbooksMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zyx.books.model.Childrensbooks">
+        <id column="cb_id" property="cbId" />
+        <result column="cb_boxNumber" property="cbBoxnumber" />
+        <result column="cb_bookName" property="cbBookname" />
+        <result column="cb_suit" property="cbSuit" />
+        <result column="cb_bookNumber" property="cbBooknumber" />
+        <result column="cb_applicationAge" property="cbApplicationage" />
+        <result column="cb_price" property="cbPrice" />
+        <result column="cb_introduction" property="cbIntroduction" />
+        <result column="shop_id" property="shopId" />
+        <result column="cb_shelf" property="cbShelf" />
+        <result column="classification_id" property="classificationId" />
+        <result column="cb_delivery" property="cbDelivery" />
+        <result column="cb_sameCity" property="cbSamecity" />
+        <result column="cb_expire" property="cbExpire" />
+        <result column="cb_setupTime" property="cbSetuptime" />
+        <result column="cb_updateTime" property="cbUpdatetime" />
+        <result column="Column_17" property="column17" />
+        <result column="Column_18" property="column18" />
+        <result column="Column_19" property="column19" />
+    </resultMap>
+
+</mapper>
