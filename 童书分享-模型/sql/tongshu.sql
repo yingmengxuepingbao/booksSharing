@@ -1,12 +1,16 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/10/7 19:42:11                           */
+/* Created on:     2019/10/8 13:43:49                           */
 /*==============================================================*/
 
 
 drop table if exists address;
 
+drop table if exists authentication;
+
 drop table if exists childrensBooks;
+
+drop table if exists classification;
 
 drop table if exists pictures;
 
@@ -38,6 +42,25 @@ create table address
 alter table address comment '地址表';
 
 /*==============================================================*/
+/* Table: authentication                                        */
+/*==============================================================*/
+create table authentication
+(
+   authentication_id    varchar(32) not null comment '认证编码',
+   authentication_method int(1) comment '认证方式1：个人2：企业',
+   userName             varchar(32) comment '姓名',
+   userNumber           varchar(32) comment '证件号码',
+   legalName            varchar(32) comment '法人代表名称',
+   business_license     varchar(100) comment '营业执照',
+   Column_7             char(10),
+   Column_8             char(10),
+   Column_9             char(10),
+   primary key (authentication_id)
+);
+
+alter table authentication comment '身份认证表';
+
+/*==============================================================*/
 /* Table: childrensBooks                                        */
 /*==============================================================*/
 create table childrensBooks
@@ -50,7 +73,7 @@ create table childrensBooks
    cb_applicationAge    int(100) comment '适用年龄段',
    cb_price             varchar(32) comment '价格',
    cb_introduction      varchar(255) comment '童书介绍',
-   dianpu_id            varchar(32) comment '店铺编号',
+   shop_id              varchar(32) comment '店铺编号',
    cb_shelf             varchar(32) comment '是否上架：0：上架；1：不上架',
    classification_id    varchar(32) comment '分类编号：三级联动',
    cb_delivery          int(1) comment '是否配送 0：是；1：否',
@@ -67,15 +90,33 @@ create table childrensBooks
 alter table childrensBooks comment '童书表';
 
 /*==============================================================*/
+/* Table: classification                                        */
+/*==============================================================*/
+create table classification
+(
+   classification_id    varchar(32) not null comment '分类编号',
+   classification_name  varchar(100) comment '分类名称',
+   classification_pid   varchar(32) comment '分类PID',
+   setupTime            datetime comment '创建时间',
+   update_Time          datetime comment '更新时间',
+   Column_6             char(10),
+   Column_7             char(10),
+   Column_8             char(10),
+   primary key (classification_id)
+);
+
+alter table classification comment '童书分类';
+
+/*==============================================================*/
 /* Table: pictures                                              */
 /*==============================================================*/
 create table pictures
 (
    pic_id               varchar(32) not null comment '图片编号',
-   shop_id              varchar(32),
+   shop_id              varchar(32) comment '店铺编号',
    cb_id                varchar(32) comment '童书编号',
    pic_content          varchar(255) comment '图片内容：二进制',
-   "pic_ sort"          int(1) comment '图片分类：0：轮播图；1：详情图片；2：商铺logo',
+   pic_sort             int(1) comment '图片分类：0：轮播图；1：详情图片；2：商铺logo',
    setup_time           datetime comment '创建时间',
    update_time          datetime comment '修改时间',
    Column_7             char(10),
@@ -91,17 +132,20 @@ alter table pictures comment '图片表：童书中的图片';
 /*==============================================================*/
 create table shops
 (
-   shop_id              char(10) not null comment '店铺编号',
-   shop_name            char(10) comment '店铺名称',
-   shop_address         char(10) comment '店铺地址',
-   shop_phone           char(10) comment '店铺联系方式',
-   shop_state           char(10) comment '店铺状态',
-   shop_signing         char(10) comment '是否签约',
-   shop_logo            char(10) comment '店铺logo',
-   shop_authMethod      char(10) comment '店铺认证方式：0：个人认证，1：企业认证。',
-   Column_9             char(10),
+   shop_id              varchar(32) not null comment '店铺编号',
+   u_id                 vorchar(32) comment '用户编码',
+   shop_name            varchar(100) comment '店铺名称',
+   shop_address         varchar(32) comment '店铺地址',
+   shop_phone           varchar(11) comment '店铺联系方式',
+   shop_state           int(1) comment '店铺状态',
+   shop_signing         int(1) comment '是否签约',
+   bank_code            varchar(32) comment '结算账户编码',
+   shop_logo            varchar(32) comment '店铺logo',
+   authentication_method int(1) comment '店铺认证方式：0：个人认证，1：企业认证。',
+   authentication_id    varchar(32) comment '认证编码',
    Column_10            char(10),
    Column_11            char(10),
+   Column_12            char(10),
    primary key (shop_id)
 );
 
@@ -120,11 +164,11 @@ create table users
    u_email              varchar(32) comment '用户邮箱',
    u_sex                int(1) comment '用户性别：0：女；1：男',
    u_age                varchar(32) comment '用户年龄',
-   u_parent_id          vorchar(32),
+   u_parent_id          vorchar(32) comment '邀请人编号',
    sign_day             int(32) comment '签到天数',
    u_role               int(1) comment '用户角色：1：普通用户；2：普通商户；3：管理员',
    u_wx_id              vorchar(32) comment '用户微信qq编号，关联第三方登录表',
-   u_qq_id              vorchar(32),
+   u_qq_id              vorchar(32) comment '用户qq编码',
    u_setup_time         datetime comment '创建时间',
    u_update_time        datetime comment '更新时间',
    Column_17            char(10),
@@ -138,6 +182,18 @@ alter table users comment '用户表';
 alter table address add constraint FK_u_id foreign key (u_id)
       references users (u_id) on delete restrict on update restrict;
 
+alter table childrensBooks add constraint FK_classification foreign key (classification_id)
+      references classification (classification_id) on delete restrict on update restrict;
+
+alter table childrensBooks add constraint FK_shop_id foreign key (shop_id)
+      references shops (shop_id) on delete restrict on update restrict;
+
 alter table pictures add constraint FK_cb_id foreign key (cb_id)
       references childrensBooks (cb_id) on delete restrict on update restrict;
+
+alter table shops add constraint FK_authentication_id foreign key (authentication_id)
+      references authentication (authentication_id) on delete restrict on update restrict;
+
+alter table shops add constraint FK_u_id foreign key (u_id)
+      references users (u_id) on delete restrict on update restrict;
 
