@@ -9,6 +9,8 @@
         <result column="cb_id" property="cbId" />
         <result column="pic_content" property="picContent" />
         <result column="pic_sort" property="picSort" />
+        <result column="pic_size" property="picSize" />
+        <result column="pic_url" property="picUrl" />
         <result column="setup_time" property="setupTime" />
         <result column="update_time" property="updateTime" />
         <result column="Column_7" property="column7" />

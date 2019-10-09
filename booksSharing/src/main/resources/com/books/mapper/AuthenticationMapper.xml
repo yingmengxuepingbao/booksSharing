@@ -8,8 +8,12 @@
         <result column="authentication_method" property="authenticationMethod" />
         <result column="userName" property="userName" />
         <result column="userNumber" property="userNumber" />
+        <result column="pic_zheng" property="picZheng" />
+        <result column="pic_fan" property="picFan" />
+        <result column="pic_ren" property="picRen" />
         <result column="legalName" property="legalName" />
         <result column="business_license" property="businessLicense" />
+        <result column="xinyong_code" property="xinyongCode" />
         <result column="Column_7" property="column7" />
         <result column="Column_8" property="column8" />
         <result column="Column_9" property="column9" />

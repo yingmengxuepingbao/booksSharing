@@ -11,7 +11,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yixin123
- * @since 2019-10-08
+ * @since 2019-10-09
  */
 @TableName("book_share_authentication")
 public class Authentication implements Serializable {
@@ -37,6 +37,21 @@ public class Authentication implements Serializable {
      */
     private String userNumber;
     /**
+     * 身份证正面照片
+     */
+    @TableField("pic_zheng")
+    private String picZheng;
+    /**
+     * 身份证 反面照片
+     */
+    @TableField("pic_fan")
+    private String picFan;
+    /**
+     * 手持身份证照片
+     */
+    @TableField("pic_ren")
+    private String picRen;
+    /**
      * 法人代表名称
      */
     private String legalName;
@@ -45,6 +60,11 @@ public class Authentication implements Serializable {
      */
     @TableField("business_license")
     private String businessLicense;
+    /**
+     * 统一社会信用代码
+     */
+    @TableField("xinyong_code")
+    private String xinyongCode;
     @TableField("Column_7")
     private String column7;
     @TableField("Column_8")
@@ -85,6 +105,30 @@ public class Authentication implements Serializable {
         this.userNumber = userNumber;
     }
 
+    public String getPicZheng() {
+        return picZheng;
+    }
+
+    public void setPicZheng(String picZheng) {
+        this.picZheng = picZheng;
+    }
+
+    public String getPicFan() {
+        return picFan;
+    }
+
+    public void setPicFan(String picFan) {
+        this.picFan = picFan;
+    }
+
+    public String getPicRen() {
+        return picRen;
+    }
+
+    public void setPicRen(String picRen) {
+        this.picRen = picRen;
+    }
+
     public String getLegalName() {
         return legalName;
     }
@@ -99,6 +143,14 @@ public class Authentication implements Serializable {
 
     public void setBusinessLicense(String businessLicense) {
         this.businessLicense = businessLicense;
+    }
+
+    public String getXinyongCode() {
+        return xinyongCode;
+    }
+
+    public void setXinyongCode(String xinyongCode) {
+        this.xinyongCode = xinyongCode;
     }
 
     public String getColumn7() {
@@ -132,8 +184,12 @@ public class Authentication implements Serializable {
         ", authenticationMethod=" + authenticationMethod +
         ", userName=" + userName +
         ", userNumber=" + userNumber +
+        ", picZheng=" + picZheng +
+        ", picFan=" + picFan +
+        ", picRen=" + picRen +
         ", legalName=" + legalName +
         ", businessLicense=" + businessLicense +
+        ", xinyongCode=" + xinyongCode +
         ", column7=" + column7 +
         ", column8=" + column8 +
         ", column9=" + column9 +

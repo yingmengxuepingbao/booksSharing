@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/10/8 20:01:14                           */
+/* Created on:     2019/10/9 11:09:02                           */
 /*==============================================================*/
 
 
@@ -50,8 +50,12 @@ create table book_share_authentication
    authentication_method int(1) comment '认证方式1：个人2：企业',
    userName             varchar(32) comment '姓名',
    userNumber           varchar(32) comment '证件号码',
+   pic_zheng            varchar(100) comment '身份证正面照片',
+   pic_fan              varchar(100) comment '身份证 反面照片',
+   pic_ren              varchar(100) comment '手持身份证照片',
    legalName            varchar(32) comment '法人代表名称',
    business_license     varchar(100) comment '营业执照',
+   xinyong_code         varchar(32) comment '统一社会信用代码',
    Column_7             char(10),
    Column_8             char(10),
    Column_9             char(10),
@@ -117,6 +121,8 @@ create table book_share_pictures
    cb_id                varchar(32) comment '童书编号',
    pic_content          varchar(255) comment '图片内容：二进制',
    pic_sort             int(1) comment '图片分类：0：轮播图；1：详情图片；2：商铺logo',
+   pic_size             varchar(255) comment '图片大小',
+   pic_url              varchar(255) comment '图片URL',
    setup_time           datetime comment '创建时间',
    update_time          datetime comment '修改时间',
    Column_7             char(10),

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yixin123
- * @since 2019-10-08
+ * @since 2019-10-09
  */
 @TableName("book_share_pictures")
 public class Pictures implements Serializable {
@@ -44,6 +44,16 @@ public class Pictures implements Serializable {
      */
     @TableField("pic_sort")
     private Integer picSort;
+    /**
+     * 图片大小
+     */
+    @TableField("pic_size")
+    private String picSize;
+    /**
+     * 图片URL
+     */
+    @TableField("pic_url")
+    private String picUrl;
     /**
      * 创建时间
      */
@@ -102,6 +112,22 @@ public class Pictures implements Serializable {
         this.picSort = picSort;
     }
 
+    public String getPicSize() {
+        return picSize;
+    }
+
+    public void setPicSize(String picSize) {
+        this.picSize = picSize;
+    }
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
     public Date getSetupTime() {
         return setupTime;
     }
@@ -150,6 +176,8 @@ public class Pictures implements Serializable {
         ", cbId=" + cbId +
         ", picContent=" + picContent +
         ", picSort=" + picSort +
+        ", picSize=" + picSize +
+        ", picUrl=" + picUrl +
         ", setupTime=" + setupTime +
         ", updateTime=" + updateTime +
         ", column7=" + column7 +

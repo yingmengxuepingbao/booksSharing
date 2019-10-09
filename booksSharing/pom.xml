@@ -26,6 +26,11 @@
 		</dependency>
 		
 <!-- https://mvnrepository.com -->
+		<!-- 添加MongoDB的依赖配置 -->
+		<dependency>
+		     <groupId>org.springframework.boot</groupId>
+		     <artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

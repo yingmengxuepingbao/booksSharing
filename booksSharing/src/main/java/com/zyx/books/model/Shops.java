@@ -11,7 +11,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yixin123
- * @since 2019-10-08
+ * @since 2019-10-09
  */
 @TableName("book_share_shops")
 public class Shops implements Serializable {
