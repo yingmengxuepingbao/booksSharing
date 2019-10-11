@@ -1,0 +1,39 @@
+img{
+		width: 50px;
+		height: 50px;
+	}
+.float {
+		position: absolute;
+		z-index: 1;
+	}
+			
+.file {
+		width: 60px;
+		height: 60px;
+		opacity: 0;
+	}
+.del_div{
+	position: relative;
+	width: 50px;
+	height: 50px;
+}
+.myImg{
+	width: 50px;
+	height: 50px;
+}
+.chahao{
+	position: absolute;
+	width:20px; 
+	height:20px; 
+	top: -10px;
+	right: -10px;
+}	 
+div.information em{
+	display:block;
+	font-size:50px;
+	margin:0px 15px;
+	text-align:left;
+	color:#F00;
+	line-height:18px;
+	display:none;
+	}

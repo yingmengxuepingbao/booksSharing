@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>店铺管理</title>
+		<link href="../../css/currency/generalStyle.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="../../util/js/jquery-1.12.3.min.js"></script>
+		<script type="text/javascript" src="../../util/js/utils-js/picPreloading.js"></script>
+		<script type="text/javascript" src="../../util/js/shops/shopsAdd.js"></script>
+	</head>
+	<body>
+		<h2>店铺添加</h2>
+		<div >
+		   <div>店铺名称：</div>
+		   <div class="information">
+		   		<input type="text" id="shopName" >
+		   		<em id="shopNameNull" >请填写店铺名称</em>
+		   </div>
+		   <div>地址：</div>
+		   <div>
+		   		<input type="text" id="shopAddress">
+		   		<em id="shopAddressNull">请填写地址</em>
+		   </div>
+		   <div>联系方式：</div>
+		   <div>
+		   		<input type="text" id="shopPhone">
+		   		<em id="shopPhoneNull">请填写联系方式</em>
+		   </div>
+		   <div>状态：</div>
+		   <div>
+		   		<input type="radio" value="0" name="shopState" checked="checked"> 解封
+		   		<input type="radio" value="1" name="shopState"> 封号
+		   </div>
+		   <div>是否签约：</div>
+		   <div>
+		   		<input type="radio" value="0" name="shopSigning" checked="checked"> 是
+		   		<input type="radio" value="1" name="shopSigning"> 否
+		   </div>
+		   <!-- <div>结算账户</div>
+		   <div>
+		   		<input type="text"  name="bankCode"> 
+		   </div> -->
+		   <div>logo：</div>
+		   <div id="shopLogo_div">
+		   		<div class="float">
+					<input type="file" class="file" id="shopLogo" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,2,'shopLogo_div','shopLogo')"/>
+				</div>
+				<img src='../../img/share/add.png' name='voucher'>
+				<div class="imgCount" id="imgCount_logo">
+				<!-- 缩图拼接 -->
+				</div>
+				<em id="shopLogoNull">请上传logo</em>
+		   </div>
+		   <div>认证方式：</div>
+		   <div>
+		   		<input type="radio" value="0" name="authenticationMethod" checked="checked"> 个人认证
+		   		<input type="radio" value="1" name="authenticationMethod"> 企业认证
+		   </div>
+		   
+		   <!-- 隐藏区域 -->
+		   <div id="geren">
+		   		<div>身份证人像面：</div>
+			   <div id="picZheng_div">
+			   		<div class="float">
+						<input type="file" class="file" id="picZheng" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,2,'picZheng_div','picZheng')"/>
+					</div>
+					<img src="../../img/share/add.png" name="voucher">
+					<div class="imgCount" id="imgCount_picZheng">
+					<!-- 缩图拼接 -->
+					</div>
+					<em id="picZhengNull">请上传身份证人像面</em>
+			   </div>
+			   <div>身份证国徽面：</div>
+			   <div id="picFan_div">
+			   		<div class="float">
+						<input type="file" class="file" id="picFan" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+					</div>
+					<img src="../../img/share/add.png" name="voucher">
+					<div class="imgCount" id="imgCount_picFan">
+					<!-- 缩图拼接 -->
+					</div>
+					<em id="picFanNull">请上传身份证国徽面</em>
+			   </div>
+			   <div>手持身份证照：</div>
+			   <div id="picRen_div">
+			   		<div class="float">
+						<input type="file" class="file" id="picRen" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+					</div>
+					<img src="../../img/share/add.png" name="voucher">
+					<div class="imgCount" id="imgCount_picRen">
+					<!-- 缩图拼接 -->
+					</div>
+					<em id="picFanNull">请上传手持身份证照</em>
+			   </div>
+			   <div>姓名：</div>
+			   <div>
+			   		<input type="text" id="userName" readonly value="">
+			   </div>
+			   <div>身份证号：</div>
+			   <div>
+			   		<input type="text" id="userNumber" readonly value="">
+			   </div>
+		   </div>
+		    <div id="qiye" hidden="hidden">
+		   		<div>营业执照：</div>
+			   <div id="businessLicense_div">
+			   		<div class="float">
+						<input type="file" class="file" id="businessLicense" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+					</div>
+					<img src="../../img/share/add.png" name="voucher">
+					<div class="imgCount" id="imgCount_businessLicense">
+					<!-- 缩图拼接 -->
+					</div>
+					<em id="picFanNull">请上传营业执照</em>
+			   </div>
+			   
+			   <div>统一社会信用代码：</div>
+			   <div>
+			   		<input type="text" id="xinyongCode" readonly value="">
+			   </div>
+			   <div>法人代表名称：</div>
+			   <div>
+			   		<input type="text" id="legalName" readonly value="">
+			   </div>
+			</div>  
+			
+		   <div>
+		   		<input type="hidden" id="number" value="0">
+		   		<input type="button" value="确定" onclick="sub()">
+		   </div>
+		</div>
+	</body>
+</html>
