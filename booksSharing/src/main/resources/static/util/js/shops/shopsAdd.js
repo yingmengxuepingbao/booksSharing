@@ -21,7 +21,7 @@ function compress(num,count,divId,fileId) {
 	 * @param number 用于标识图片
 	 * @returns
 	 */
-	if(fileObj.files[0]!=undefined){
+	if(fileObj.files[0]!=undefined){//判断是否点击了取消
 		 // 新建一个FileReader
 	    const reader = new FileReader()
 	    // 读取文件 
@@ -55,7 +55,6 @@ function compress(num,count,divId,fileId) {
 $(function () {
 	//点击单选按钮后触发，即，认证方式：企业认证，营业执照显示；个人认证，身份证显示。
 	$("input[name=authenticationMethod]").click(function(){
-		alert("111");
 	    var authenticationMethod = $(this).val();
 	    if(authenticationMethod == 1){//企业认证
 	    	$("#qiye").show();
@@ -73,22 +72,88 @@ $(function () {
  */
 function sub(){
 	var shopName = $("#shopName").val();
+	//商店名称如果为空，显示提示语
+	judgeEm(shopName,"shopName");
 	var shopAddress = $("#shopAddress").val();
+	judgeEm(shopAddress,"shopAddress");
 	var shopPhone = $("#shopPhone").val();
+	judgeEm(shopPhone,"shopPhone");
 	var shopState =  $('input[name="shopState"]:checked').val(); 
 	var shopSigning =  $('input[name="shopSigning"]:checked').val(); 
-	var imgCount_logo = $("#imgCount_logo").innerHTML;
+	var imgCount_logo = $("#imgCount_logo").children().length;//判断是否包含拼接的子节点。
+	if(imgCount_logo >0){//长度大于0，存在子节点
+		
+	}else{
+		judgeEm("","shopLogo");//如果没有添加图片，就返回。
+		return;
+	}
+	console.log($("#imgCount_logo").children("img.myImg").attr("src"));//获取class为myImg的img
+	$("#imgCount_logo>div>img").children(); //获取logo图片的src
 	var authenticationMethod =  $('input[name="authenticationMethod"]:checked').val();
 	if(authenticationMethod==0){
 		var imgCount_picZheng = $("#imgCount_picZheng").innerHTML;
+		judgeEm(imgCount_picZheng,"picZheng");
 		var imgCount_picFan = $("#imgCount_picFan").innerHTML;
+		judgeEm(imgCount_picFan,"picFan");
 		var imgCount_picRen = $("#imgCount_picRen").innerHTML;
+		judgeEm(imgCount_picRen,"picRen");
 		var userName = $("#userName").val();
+		judgeEm(userName,"userName");
 		var userNumber = $("#userNumber").val();
+		judgeEm(userNumber,"userNumber");
 	}else if(authenticationMethod == 1){
 		var imgCount_businessLicense = $("#imgCount_businessLicense").innerHTML;
+		judgeEm(imgCount_businessLicense,"businessLicense");
 		var xinyongCode = $("#xinyongCode").val();
+		judgeEm(xinyongCode,"xinyongCode");
 		var legalName = $("#legalName").val();
+		judgeEm(legalName,"legalName");
 	}
-	
+	var data = JSON.stringify({"shopName":shopName
+		,"shopAddress":shopAddress
+		,"shopPhone":shopPhone
+		,"shopState":shopState
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		,"shopSigning":shopSigning
+		
+	});
+	var getPort=upAndDownload.getPort();
+	//当所有数据都不为空时，向后台提供数据
+	$.ajax({
+		 type: 'POST',
+		  url: getPort+"",
+		  data:data,
+		  dataType:"json",
+		  contentType: "application/json",
+		  success:function (data) {
+			 if(data.result=="sussess"){//存在数据时，拼接数据
+				 window.alert("添加成功");
+				 window.location.href = "../personalCenter/complaintRecord.html"
+			 }else{
+				 window.alert("添加失败");
+			 }
+		  }, 
+		  error:function () {
+			  window.alert("查询失败");
+		  }
+		});
+}
+/**
+ * 判断是否非空
+ * @param idFlag id标识
+ * @returns
+ */
+function judgeEm(idFlag,flagId){
+	if(idFlag =="" || idFlag==null || idFlag==undefined){
+		$("#"+flagId+"Null").show();
+	}else{
+		$("#"+flagId+"Null").hide();
+	}
 }

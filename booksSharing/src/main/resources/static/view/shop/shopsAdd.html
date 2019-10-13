@@ -10,21 +10,21 @@
 	</head>
 	<body>
 		<h2>店铺添加</h2>
-		<div >
+		<div class="information">
 		   <div>店铺名称：</div>
-		   <div class="information">
+		   <div >
 		   		<input type="text" id="shopName" >
-		   		<em id="shopNameNull" >请填写店铺名称</em>
+		   		<em class="em_css" id="shopNameNull" >请填写店铺名称</em>
 		   </div>
 		   <div>地址：</div>
 		   <div>
 		   		<input type="text" id="shopAddress">
-		   		<em id="shopAddressNull">请填写地址</em>
+		   		<em class="em_css" id="shopAddressNull">请填写地址</em>
 		   </div>
 		   <div>联系方式：</div>
 		   <div>
 		   		<input type="text" id="shopPhone">
-		   		<em id="shopPhoneNull">请填写联系方式</em>
+		   		<em class="em_css" id="shopPhoneNull">请填写联系方式</em>
 		   </div>
 		   <div>状态：</div>
 		   <div>
@@ -49,7 +49,7 @@
 				<div class="imgCount" id="imgCount_logo">
 				<!-- 缩图拼接 -->
 				</div>
-				<em id="shopLogoNull">请上传logo</em>
+				<em class="em_css" id="shopLogoNull">请上传logo</em>
 		   </div>
 		   <div>认证方式：</div>
 		   <div>
@@ -62,65 +62,70 @@
 		   		<div>身份证人像面：</div>
 			   <div id="picZheng_div">
 			   		<div class="float">
-						<input type="file" class="file" id="picZheng" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,2,'picZheng_div','picZheng')"/>
+						<input type="file" class="file" id="picZheng" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,1,'picZheng_div','picZheng')"/>
 					</div>
 					<img src="../../img/share/add.png" name="voucher">
 					<div class="imgCount" id="imgCount_picZheng">
 					<!-- 缩图拼接 -->
 					</div>
-					<em id="picZhengNull">请上传身份证人像面</em>
+					<em class="em_css" id="picZhengNull">请上传身份证人像面</em>
 			   </div>
 			   <div>身份证国徽面：</div>
 			   <div id="picFan_div">
 			   		<div class="float">
-						<input type="file" class="file" id="picFan" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+						<input type="file" class="file" id="picFan" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,1,'picFan_div','picFan')"/>
 					</div>
 					<img src="../../img/share/add.png" name="voucher">
 					<div class="imgCount" id="imgCount_picFan">
 					<!-- 缩图拼接 -->
 					</div>
-					<em id="picFanNull">请上传身份证国徽面</em>
+					<em class="em_css" id="picFanNull">请上传身份证国徽面</em>
 			   </div>
 			   <div>手持身份证照：</div>
 			   <div id="picRen_div">
 			   		<div class="float">
-						<input type="file" class="file" id="picRen" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+						<input type="file" class="file" id="picRen" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,1,'picRen_div','picRen')"/>
 					</div>
 					<img src="../../img/share/add.png" name="voucher">
 					<div class="imgCount" id="imgCount_picRen">
 					<!-- 缩图拼接 -->
 					</div>
-					<em id="picFanNull">请上传手持身份证照</em>
+					<em class="em_css" id="picRenNull">请上传手持身份证照</em>
 			   </div>
+			   <div></div>
 			   <div>姓名：</div>
 			   <div>
-			   		<input type="text" id="userName" readonly value="">
+			   		<input type="text" id="userName"  value="">
+			   		<em class="em_css" id="userNameNull">请填写姓名</em>
 			   </div>
 			   <div>身份证号：</div>
 			   <div>
-			   		<input type="text" id="userNumber" readonly value="">
+			   		<input type="text" id="userNumber"  value="">
+			   		<em class="em_css" id="userNumberNull">请填写身份证号</em>
 			   </div>
 		   </div>
 		    <div id="qiye" hidden="hidden">
 		   		<div>营业执照：</div>
 			   <div id="businessLicense_div">
 			   		<div class="float">
-						<input type="file" class="file" id="businessLicense" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress()"/>
+						<input type="file" class="file" id="businessLicense" accept="image/png,image/jpeg,image/gif,image/jpg" onchange="compress(0,1,'businessLicense_div','businessLicense')"/>
 					</div>
 					<img src="../../img/share/add.png" name="voucher">
 					<div class="imgCount" id="imgCount_businessLicense">
 					<!-- 缩图拼接 -->
 					</div>
-					<em id="picFanNull">请上传营业执照</em>
+					<em class="em_css" id="businessLicenseNull">请上传营业执照</em>
 			   </div>
-			   
+			   <div></div>
 			   <div>统一社会信用代码：</div>
 			   <div>
-			   		<input type="text" id="xinyongCode" readonly value="">
+			   		<input type="text" id="xinyongCode"  value="">
+			   		<em class="em_css" id="xinyongCodeNull">请填写统一社会信用代码</em>
 			   </div>
 			   <div>法人代表名称：</div>
 			   <div>
-			   		<input type="text" id="legalName" readonly value="">
+			   		<input type="text" id="legalName"  value="">
+			   		<em class="em_css" id="legalNameNull">请填写法人代表名称</em>
 			   </div>
 			</div>  
 			

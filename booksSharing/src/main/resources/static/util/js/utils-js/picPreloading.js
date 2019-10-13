@@ -4,6 +4,13 @@ var chaHao="../../img/share/chahao.png";//❌图标
 (function(){
 	upAndDownload={
 			/**
+			 * 获取公共路径方法
+			 * @returns
+			 */
+			getPort:function(){
+				return "http://localhost:8080";  //公共路径
+			},
+			/**
 			 * 图片预处理-压缩图处理
 			 * @param num 已上传的个数
 			 * @param count 最多上传个数
@@ -21,7 +28,6 @@ var chaHao="../../img/share/chahao.png";//❌图标
 						str ="<div class='del_div' id='del"+number+"' style='display:inline-block;margin-left:10px;'>" 
 							+"<img id='img"+number+"'  src='' class='myImg' name='complaintVoucherPicture'>"
 							+"</div>";
-							//(document.getElementById(divId).childNodes)[5].innerHTML = str;
 						console.log((document.getElementById(divId).childNodes)[5]);
 						(document.getElementById(divId).childNodes)[5].innerHTML=str;
 					}else if(num<count){//如果张数少于指定的个数
@@ -30,7 +36,6 @@ var chaHao="../../img/share/chahao.png";//❌图标
 							+"<img id='img"+number+"'  src='' class='myImg' name='complaintVoucherPicture'>"
 							+"</div>";
 						console.log((document.getElementById(divId).childNodes)[5]);
-						//(document.getElementById(divId).childNodes)[5].innerHTML = str;
 						$("#"+div_id+"").append(str);
 					}else{
 						return;
@@ -53,7 +58,6 @@ var chaHao="../../img/share/chahao.png";//❌图标
 				            data = canvas.toDataURL('image/jpeg');
 				            //压缩完成 
 				            document.getElementById('img'+number).src =data;
-				            //number++;
 				        }
 			   
 			        }

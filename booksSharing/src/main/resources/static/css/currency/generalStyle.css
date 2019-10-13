@@ -28,9 +28,9 @@ img{
 	top: -10px;
 	right: -10px;
 }	 
-div.information em{
+.em_css{
 	display:block;
-	font-size:50px;
+	font-size:15px;
 	margin:0px 15px;
 	text-align:left;
 	color:#F00;
