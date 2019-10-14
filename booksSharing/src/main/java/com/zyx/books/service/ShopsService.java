@@ -1,7 +1,7 @@
 package com.zyx.books.service;
 
-import com.zyx.books.model.Shops;
 import com.baomidou.mybatisplus.service.IService;
+import com.zyx.books.model.Shops;
 
 /**
  * <p>
@@ -12,5 +12,10 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2019-10-09
  */
 public interface ShopsService extends IService<Shops> {
-
+	/**
+	 * 添加店铺信息
+	 * @param shops 店铺信息
+	 * @return
+	 */
+	public int addShops(Shops shops);
 }

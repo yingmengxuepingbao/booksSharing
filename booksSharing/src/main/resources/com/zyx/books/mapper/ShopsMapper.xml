@@ -19,5 +19,37 @@
         <result column="Column_11" property="column11" />
         <result column="Column_12" property="column12" />
     </resultMap>
-
+	<sql id="Base_Column_List">
+      shop_id,u_id,shop_name,shop_address,shop_phone,shop_state
+      ,shop_signing,bank_code,shop_logo,authentication_method,authentication_id,Column_10,Column_11,Column_12
+    </sql>
+     <!-- 获取UUID -->
+	<select id="getUUID" resultType="String">
+		select md5(UUID());
+	</select>
+	<!-- 添加店铺信息 -->
+	<insert id="addShops" parameterType="com.zyx.books.model.Shops" >
+		INSERT INTO book_share_shops 
+		(<include refid="Base_Column_List"/>)
+		VALUES 
+		(#{shopId}
+		,#{uId}
+		,#{shopName}
+		,#{shopAddress}
+		,#{shopPhone}
+		,#{shopState}
+		,#{shopSigning}
+		,#{bankCode}
+		,#{shopLogo}
+		,#{authenticationMethod}
+		,#{authenticationId}
+		,#{column10}
+		,#{column11}
+		,#{column12}
+		);
+	</insert>
+	
+	<!-- <select id="selShops" resultMap="BaseResultMap">
+	select * from book_share_shops WHERE 1=1;
+	</select> -->
 </mapper>

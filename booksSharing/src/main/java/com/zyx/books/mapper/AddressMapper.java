@@ -1,6 +1,9 @@
 package com.zyx.books.mapper;
 
 import com.zyx.books.model.Address;
+
+import org.apache.ibatis.annotations.Mapper;
+
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**

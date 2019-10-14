@@ -1,9 +1,21 @@
 package com.zyx.books.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.zyx.books.model.Shops;
+import com.zyx.books.service.ShopsService;
 
 /**
  * <p>
@@ -17,5 +29,24 @@ import org.springframework.stereotype.Controller;
 @RequestMapping("/shops")
 public class ShopsController {
 
+	@Autowired
+	private ShopsService shopsService;
+	
+	
+	/**
+	 * 添加店铺信息
+	 * @param shops 店铺信息
+	 * @return
+	 */
+	@RequestMapping(value = "/addShops", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> addShops(@Valid @RequestBody Shops shops){
+		int returnNumber = shopsService.addShops(shops);
+		Map<String,Object> returnMap =new HashMap<String,Object>();
+		if(returnNumber>0) {
+			returnMap.put("result", "sussess");
+		}
+		return returnMap;
+	}
 }
 

@@ -1,6 +1,7 @@
 var arrayObj = new Array();　//创建一个数组 	用于存储图片src
 var arrayNumber = new Array();　//创建一个数组 存放删除的图片标识
 var newArrayObj = new Array();
+var fileArrayObj = new Map();
 /**
  * 图片上传预受理
  * @param num 已上传的个数-0张
@@ -73,69 +74,85 @@ $(function () {
 function sub(){
 	var shopName = $("#shopName").val();
 	//商店名称如果为空，显示提示语
-	judgeEm(shopName,"shopName");
+	if(judgeEm(shopName,"shopName") == false) return;
 	var shopAddress = $("#shopAddress").val();
-	judgeEm(shopAddress,"shopAddress");
+	if(judgeEm(shopAddress,"shopAddress")==false) return;
 	var shopPhone = $("#shopPhone").val();
-	judgeEm(shopPhone,"shopPhone");
+	if(judgeEm(shopPhone,"shopPhone")== false) return;
 	var shopState =  $('input[name="shopState"]:checked').val(); 
 	var shopSigning =  $('input[name="shopSigning"]:checked').val(); 
 	var imgCount_logo = $("#imgCount_logo").children().length;//判断是否包含拼接的子节点。
 	if(imgCount_logo >0){//长度大于0，存在子节点
-		
+		console.log($("#imgCount_logo>div>img").attr("src"));
+		var shopLogo = $("#imgCount_logo>div>img").attr("src"); //获取logo图片的src
 	}else{
-		judgeEm("","shopLogo");//如果没有添加图片，就返回。
-		return;
+		if(judgeEm("","shopLogo")== false) return;//如果没有添加图片，就返回。
 	}
-	console.log($("#imgCount_logo").children("img.myImg").attr("src"));//获取class为myImg的img
-	$("#imgCount_logo>div>img").children(); //获取logo图片的src
 	var authenticationMethod =  $('input[name="authenticationMethod"]:checked').val();
 	if(authenticationMethod==0){
-		var imgCount_picZheng = $("#imgCount_picZheng").innerHTML;
-		judgeEm(imgCount_picZheng,"picZheng");
-		var imgCount_picFan = $("#imgCount_picFan").innerHTML;
-		judgeEm(imgCount_picFan,"picFan");
-		var imgCount_picRen = $("#imgCount_picRen").innerHTML;
-		judgeEm(imgCount_picRen,"picRen");
+		var imgCount_picZheng = $("#imgCount_picZheng").children().length;
+		if(imgCount_picZheng>0){
+			var picZheng = $("#imgCount_picZheng>div>img").attr("src"); //获取图片的src
+		}else{
+			if(judgeEm(imgCount_picZheng,"picZheng")== false) return;
+		}
+		var imgCount_picFan = $("#imgCount_picFan").children().length;
+		if(imgCount_picFan>0){
+			var picFan = $("#imgCount_picFan>div>img").attr("src"); //获取图片的src
+		}else{
+			if(judgeEm(imgCount_picFan,"picFan")== false) return;
+		}
+		
+		var imgCount_picRen = $("#imgCount_picRen").children().length;
+		if(imgCount_picRen>0){
+			var picRen = $("#imgCount_picRen>div>img").attr("src"); //获取图片的src
+		}else{
+			if(judgeEm(imgCount_picRen,"picRen")== false) return;
+		}
 		var userName = $("#userName").val();
-		judgeEm(userName,"userName");
+		if(judgeEm(userName,"userName")== false) return;
 		var userNumber = $("#userNumber").val();
-		judgeEm(userNumber,"userNumber");
+		if(judgeEm(userNumber,"userNumber")== false) return;
 	}else if(authenticationMethod == 1){
-		var imgCount_businessLicense = $("#imgCount_businessLicense").innerHTML;
-		judgeEm(imgCount_businessLicense,"businessLicense");
+		var imgCount_businessLicense = $("#imgCount_businessLicense").children().length;
+		if(imgCount_businessLicense>0){
+			var businessLicense = $("#imgCount_businessLicense>div>img").attr("src"); //获取图片的src
+		}else{
+			if(judgeEm(imgCount_businessLicense,"businessLicense")== false) return;
+		}
 		var xinyongCode = $("#xinyongCode").val();
-		judgeEm(xinyongCode,"xinyongCode");
+		if(judgeEm(xinyongCode,"xinyongCode")== false) return;
 		var legalName = $("#legalName").val();
-		judgeEm(legalName,"legalName");
+		if(judgeEm(legalName,"legalName")== false) return;
 	}
 	var data = JSON.stringify({"shopName":shopName
 		,"shopAddress":shopAddress
 		,"shopPhone":shopPhone
 		,"shopState":shopState
 		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		,"shopSigning":shopSigning
-		
+		,"shopLogo":shopLogo
+		,"authenticationMethod":authenticationMethod
+		,"picZheng":picZheng
+		,"picFan":picFan
+		,"picRen":picRen
+		,"userName":userName
+		,"userNumber":userNumber
+		,"businessLicense":businessLicense
+		,"xinyongCode":xinyongCode
+		,"legalName":legalName
 	});
 	var getPort=upAndDownload.getPort();
 	//当所有数据都不为空时，向后台提供数据
 	$.ajax({
 		 type: 'POST',
-		  url: getPort+"",
+		  url: getPort+"/shops/addShops",
 		  data:data,
 		  dataType:"json",
 		  contentType: "application/json",
 		  success:function (data) {
 			 if(data.result=="sussess"){//存在数据时，拼接数据
 				 window.alert("添加成功");
-				 window.location.href = "../personalCenter/complaintRecord.html"
+				 //window.location.href = "";
 			 }else{
 				 window.alert("添加失败");
 			 }
@@ -153,7 +170,9 @@ function sub(){
 function judgeEm(idFlag,flagId){
 	if(idFlag =="" || idFlag==null || idFlag==undefined){
 		$("#"+flagId+"Null").show();
+		return false;
 	}else{
 		$("#"+flagId+"Null").hide();
+		return true;
 	}
 }
