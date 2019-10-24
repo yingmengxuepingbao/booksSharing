@@ -14,9 +14,38 @@
         <result column="legalName" property="legalName" />
         <result column="business_license" property="businessLicense" />
         <result column="xinyong_code" property="xinyongCode" />
-        <result column="Column_7" property="column7" />
-        <result column="Column_8" property="column8" />
+        <result column="pic_sepup_time" property="picSepupTime" />
+        <result column="pic_update_time" property="picUpdateTime" />
         <result column="Column_9" property="column9" />
     </resultMap>
 
+	<sql id="Base_Column_List">
+		authentication_id,authentication_method,userName,userNumber,pic_zheng
+		,pic_fan,pic_ren,legalName,business_license,xinyong_code
+		,pic_sepup_time,pic_update_time,Column_9
+    </sql>
+     <!-- 获取UUID -->
+	<select id="getUUID" resultType="String">
+		select md5(UUID());
+	</select>
+	<!-- 添加身份认证信息 -->
+	<insert id="addAuthentication" parameterType="com.zyx.books.model.Authentication" >
+	INSERT INTO book_share_authentication
+	(<include refid="Base_Column_List"/>)
+	VALUES 
+		(#{authenticationId,jdbcType=VARCHAR}
+		,#{authenticationMethod,jdbcType=VARCHAR}
+		,#{userName,jdbcType=VARCHAR}
+		,#{userNumber,jdbcType=VARCHAR}
+		,#{picZheng,jdbcType=VARCHAR}
+		,#{picFan,jdbcType=VARCHAR}
+		,#{picRen,jdbcType=VARCHAR}
+		,#{legalName,jdbcType=VARCHAR}
+		,#{businessLicense,jdbcType=VARCHAR}
+		,#{xinyongCode,jdbcType=VARCHAR}
+		,#{picSepupTime,jdbcType=VARCHAR}
+		,#{picUpdateTime,jdbcType=VARCHAR}
+		,#{column9,jdbcType=VARCHAR}
+		);
+	</insert>
 </mapper>

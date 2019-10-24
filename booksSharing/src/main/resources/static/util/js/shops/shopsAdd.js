@@ -89,6 +89,7 @@ function sub(){
 		if(judgeEm("","shopLogo")== false) return;//如果没有添加图片，就返回。
 	}
 	var authenticationMethod =  $('input[name="authenticationMethod"]:checked').val();
+	alert(authenticationMethod);
 	if(authenticationMethod==0){
 		var imgCount_picZheng = $("#imgCount_picZheng").children().length;
 		if(imgCount_picZheng>0){

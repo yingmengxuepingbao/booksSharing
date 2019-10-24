@@ -1,6 +1,7 @@
 package com.zyx.books.service;
 
 import com.baomidou.mybatisplus.service.IService;
+import com.zyx.books.model.Authentication;
 import com.zyx.books.model.Shops;
 
 /**
@@ -17,5 +18,5 @@ public interface ShopsService extends IService<Shops> {
 	 * @param shops 店铺信息
 	 * @return
 	 */
-	public int addShops(Shops shops);
+	public boolean addShops(Shops shops,Authentication authentication);
 }

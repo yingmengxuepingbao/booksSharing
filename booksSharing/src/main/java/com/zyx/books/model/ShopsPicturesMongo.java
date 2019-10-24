@@ -1,10 +1,6 @@
 package com.zyx.books.model;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 
 /**
  * <p>
@@ -14,7 +10,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
  * @author yixin
  * @since 2019-10-14
  */
-public class PicturesMongo implements Serializable {
+public class ShopsPicturesMongo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,6 +27,22 @@ public class PicturesMongo implements Serializable {
      * 图片分类：0：轮播图；1：详情图片；2：商铺logo
      */
     private Integer picSort;
+    /**
+     * 身份证人像面：
+     */
+    private String picZheng;
+    /**
+     * 身份证国徽面：
+     */
+    private String picFan;
+    /**
+     * 手持身份证照：
+     */
+    private String picRen;
+    /**
+     * 营业执照：
+     */
+    private String businessLicense;
     /**
      * 创建时间
      */
@@ -80,14 +92,43 @@ public class PicturesMongo implements Serializable {
         this.updateTime = updateTime;
     }
 
-    @Override
-    public String toString() {
-        return "Pictures{" +
-        "picId=" + picId +
-        ", picContent=" + picContent +
-        ", picSort=" + picSort +
-        ", setupTime=" + setupTime +
-        ", updateTime=" + updateTime +
-        "}";
-    }
+    public String getPicZheng() {
+		return picZheng;
+	}
+
+	public void setPicZheng(String picZheng) {
+		this.picZheng = picZheng;
+	}
+
+	public String getPicFan() {
+		return picFan;
+	}
+
+	public void setPicFan(String picFan) {
+		this.picFan = picFan;
+	}
+
+	public String getPicRen() {
+		return picRen;
+	}
+
+	public void setPicRen(String picRen) {
+		this.picRen = picRen;
+	}
+
+	public String getBusinessLicense() {
+		return businessLicense;
+	}
+
+	public void setBusinessLicense(String businessLicense) {
+		this.businessLicense = businessLicense;
+	}
+	@Override
+	public String toString() {
+		return "ShopsPicturesMongo [picId=" + picId + ", picContent=" + picContent + ", picSort=" + picSort
+				+ ", picZheng=" + picZheng + ", picFan=" + picFan + ", picRen=" + picRen + ", businessLicense="
+				+ businessLicense + ", setupTime=" + setupTime + ", updateTime=" + updateTime + "]";
+	}
+
+	
 }

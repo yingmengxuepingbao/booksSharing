@@ -7,13 +7,13 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zyx.books.model.Authentication;
 import com.zyx.books.model.Shops;
 import com.zyx.books.service.ShopsService;
 
@@ -40,10 +40,12 @@ public class ShopsController {
 	 */
 	@RequestMapping(value = "/addShops", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> addShops(@Valid @RequestBody Shops shops){
-		int returnNumber = shopsService.addShops(shops);
+	public Map<String, Object> addShops(@Valid @RequestBody Shops shops
+			,Authentication authentication){
+		System.out.println(authentication.getUserNumber() + "---"+authentication.getUserName());
+		boolean returnFlag= shopsService.addShops(shops,authentication);
 		Map<String,Object> returnMap =new HashMap<String,Object>();
-		if(returnNumber>0) {
+		if(returnFlag) {
 			returnMap.put("result", "sussess");
 		}
 		return returnMap;

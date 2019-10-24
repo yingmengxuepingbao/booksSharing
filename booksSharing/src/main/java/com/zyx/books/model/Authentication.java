@@ -1,5 +1,6 @@
 package com.zyx.books.model;
 
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -11,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yixin123
- * @since 2019-10-09
+ * @since 2019-10-16
  */
 @TableName("book_share_authentication")
 public class Authentication implements Serializable {
@@ -65,10 +66,10 @@ public class Authentication implements Serializable {
      */
     @TableField("xinyong_code")
     private String xinyongCode;
-    @TableField("Column_7")
-    private String column7;
-    @TableField("Column_8")
-    private String column8;
+    @TableField("pic_sepup_time")
+    private String picSepupTime;
+    @TableField("pic_update_time")
+    private String picUpdateTime;
     @TableField("Column_9")
     private String column9;
 
@@ -153,23 +154,25 @@ public class Authentication implements Serializable {
         this.xinyongCode = xinyongCode;
     }
 
-    public String getColumn7() {
-        return column7;
-    }
+   
 
-    public void setColumn7(String column7) {
-        this.column7 = column7;
-    }
+    public String getPicSepupTime() {
+		return picSepupTime;
+	}
 
-    public String getColumn8() {
-        return column8;
-    }
+	public void setPicSepupTime(String picSepupTime) {
+		this.picSepupTime = picSepupTime;
+	}
 
-    public void setColumn8(String column8) {
-        this.column8 = column8;
-    }
+	public String getPicUpdateTime() {
+		return picUpdateTime;
+	}
 
-    public String getColumn9() {
+	public void setPicUpdateTime(String picUpdateTime) {
+		this.picUpdateTime = picUpdateTime;
+	}
+
+	public String getColumn9() {
         return column9;
     }
 
@@ -190,8 +193,8 @@ public class Authentication implements Serializable {
         ", legalName=" + legalName +
         ", businessLicense=" + businessLicense +
         ", xinyongCode=" + xinyongCode +
-        ", column7=" + column7 +
-        ", column8=" + column8 +
+        ", picSepupTime=" + picSepupTime +
+        ", picUpdateTime=" + picUpdateTime +
         ", column9=" + column9 +
         "}";
     }

@@ -10,5 +10,4 @@ public class BooksSharingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BooksSharingApplication.class, args);
 	}
-
 }

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019/10/9 11:09:02                           */
+/* Created on:     2019/10/16 10:57:21                          */
 /*==============================================================*/
 
 
@@ -56,8 +56,8 @@ create table book_share_authentication
    legalName            varchar(32) comment '法人代表名称',
    business_license     varchar(100) comment '营业执照',
    xinyong_code         varchar(32) comment '统一社会信用代码',
-   Column_7             char(10),
-   Column_8             char(10),
+   pic_sepup_time       datetime,
+   pic_update_time      datetime,
    Column_9             char(10),
    primary key (authentication_id)
 );
@@ -143,14 +143,14 @@ create table book_share_shops
    shop_name            varchar(100) comment '店铺名称',
    shop_address         varchar(32) comment '店铺地址',
    shop_phone           varchar(11) comment '店铺联系方式',
-   shop_state           int(1) comment '店铺状态',
-   shop_signing         int(1) comment '是否签约',
+   shop_state           int(1) comment '店铺状态：1封号；0：解封',
+   shop_signing         int(1) comment '是否签约：0 签约，1未签约',
    bank_code            varchar(32) comment '结算账户编码',
    shop_logo            varchar(32) comment '店铺logo',
    authentication_method int(1) comment '店铺认证方式：0：个人认证，1：企业认证。',
    authentication_id    varchar(32) comment '认证编码',
-   Column_10            char(10),
-   Column_11            char(10),
+   shop_setup_time      datetime,
+   shop_update_time     datetime,
    Column_12            char(10),
    primary key (shop_id)
 );

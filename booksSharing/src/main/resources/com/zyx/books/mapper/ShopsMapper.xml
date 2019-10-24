@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatiorg//DTD Mapper 3.0//EN" "http://mybatiorg/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zyx.books.mapper.ShopsMapper">
 
-    <!-- 通用查询映射结果 -->
+     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zyx.books.model.Shops">
         <id column="shop_id" property="shopId" />
         <result column="u_id" property="uId" />
@@ -15,13 +15,17 @@
         <result column="shop_logo" property="shopLogo" />
         <result column="authentication_method" property="authenticationMethod" />
         <result column="authentication_id" property="authenticationId" />
-        <result column="Column_10" property="column10" />
-        <result column="Column_11" property="column11" />
+        <result column="shop_setup_time" property="shopSetupTime" />
+        <result column="shop_update_time" property="shopUpdateTime" />
         <result column="Column_12" property="column12" />
     </resultMap>
 	<sql id="Base_Column_List">
       shop_id,u_id,shop_name,shop_address,shop_phone,shop_state
-      ,shop_signing,bank_code,shop_logo,authentication_method,authentication_id,Column_10,Column_11,Column_12
+      ,shop_signing,bank_code,shop_logo,authentication_method
+      ,authentication_id
+      ,shop_setup_time
+      ,shop_update_time 
+      ,Column_12
     </sql>
      <!-- 获取UUID -->
 	<select id="getUUID" resultType="String">
@@ -32,20 +36,20 @@
 		INSERT INTO book_share_shops 
 		(<include refid="Base_Column_List"/>)
 		VALUES 
-		(#{shopId}
-		,#{uId}
-		,#{shopName}
-		,#{shopAddress}
-		,#{shopPhone}
-		,#{shopState}
-		,#{shopSigning}
-		,#{bankCode}
-		,#{shopLogo}
-		,#{authenticationMethod}
-		,#{authenticationId}
-		,#{column10}
-		,#{column11}
-		,#{column12}
+		(#{shopId,jdbcType=VARCHAR}
+		,#{uId,jdbcType=VARCHAR}
+		,#{shopName,jdbcType=VARCHAR}
+		,#{shopAddress,jdbcType=VARCHAR}
+		,#{shopPhone,jdbcType=VARCHAR}
+		,#{shopState,jdbcType=INTEGER}
+		,#{shopSigning,jdbcType=INTEGER}
+		,#{bankCode,jdbcType=VARCHAR}
+		,#{shopLogo,jdbcType=VARCHAR}
+		,#{authenticationMethod,jdbcType=VARCHAR}
+		,#{authenticationId,jdbcType=VARCHAR}
+		,#{shopSetupTime,jdbcType=VARCHAR}
+		,#{shopUpdateTime,jdbcType=VARCHAR}
+		,#{column12,jdbcType=VARCHAR}
 		);
 	</insert>
 	

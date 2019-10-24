@@ -1,5 +1,6 @@
 package com.zyx.books.model;
 
+import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -11,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author yixin123
- * @since 2019-10-09
+ * @since 2019-10-16
  */
 @TableName("book_share_shops")
 public class Shops implements Serializable {
@@ -44,12 +45,12 @@ public class Shops implements Serializable {
     @TableField("shop_phone")
     private String shopPhone;
     /**
-     * 店铺状态
+     * 店铺状态：1封号；0：解封
      */
     @TableField("shop_state")
     private Integer shopState;
     /**
-     * 是否签约
+     * 是否签约：0 签约，1未签约
      */
     @TableField("shop_signing")
     private Integer shopSigning;
@@ -73,10 +74,10 @@ public class Shops implements Serializable {
      */
     @TableField("authentication_id")
     private String authenticationId;
-    @TableField("Column_10")
-    private String column10;
-    @TableField("Column_11")
-    private String column11;
+    @TableField("shop_setup_time")
+    private String shopSetupTime;
+    @TableField("shop_update_time")
+    private String shopUpdateTime;
     @TableField("Column_12")
     private String column12;
 
@@ -169,23 +170,23 @@ public class Shops implements Serializable {
         this.authenticationId = authenticationId;
     }
 
-    public String getColumn10() {
-        return column10;
-    }
+    public String getShopSetupTime() {
+		return shopSetupTime;
+	}
 
-    public void setColumn10(String column10) {
-        this.column10 = column10;
-    }
+	public void setShopSetupTime(String shopSetupTime) {
+		this.shopSetupTime = shopSetupTime;
+	}
 
-    public String getColumn11() {
-        return column11;
-    }
+	public String getShopUpdateTime() {
+		return shopUpdateTime;
+	}
 
-    public void setColumn11(String column11) {
-        this.column11 = column11;
-    }
+	public void setShopUpdateTime(String shopUpdateTime) {
+		this.shopUpdateTime = shopUpdateTime;
+	}
 
-    public String getColumn12() {
+	public String getColumn12() {
         return column12;
     }
 
@@ -207,8 +208,8 @@ public class Shops implements Serializable {
         ", shopLogo=" + shopLogo +
         ", authenticationMethod=" + authenticationMethod +
         ", authenticationId=" + authenticationId +
-        ", column10=" + column10 +
-        ", column11=" + column11 +
+        ", shopSetupTime=" + shopSetupTime +
+        ", shopUpdateTime=" + shopUpdateTime +
         ", column12=" + column12 +
         "}";
     }
