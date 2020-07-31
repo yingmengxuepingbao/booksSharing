@@ -13,4 +13,9 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface UsersService extends IService<Users> {
 
+	/**
+	 * 登录校验
+	 * @return
+	 */
+	public Users LoginVerification(Users users);
 }

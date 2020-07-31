@@ -23,5 +23,87 @@
         <result column="Column_18" property="column18" />
         <result column="Column_19" property="column19" />
     </resultMap>
-
+<sql id="Base_Column_List">
+      u_id
+      ,u_nickname
+      ,u_name
+      ,u_password
+      ,u_phone
+      ,u_email
+      ,u_sex
+      ,u_age
+      ,u_parent_id
+      ,sign_day
+      ,u_role
+      ,u_wx_id
+      ,u_qq_id
+      ,u_setup_time
+      ,u_update_time
+      ,Column_17
+      ,Column_18
+      ,Column_19
+    </sql>
+    
+    <select id="selUser"  resultMap="BaseResultMap">
+		select 
+			<include refid="Base_Column_List" /> 
+		from 
+			book_share_users 
+		where
+		1=1
+			<if test="uId!=null and uId!='' ">
+			and u_id = #{uId}
+			</if>
+			<if test="uNickname!=null and  uNickname!='' ">
+			and u_nickname = #{uNickname}
+			</if>
+			<if test="uName!=null and uName!='' ">
+			and u_name = #{uName}
+			</if>
+			<if test="uPassword!=null and uPassword!='' ">
+			and u_password= #{uPassword}
+			</if>
+			<if test="uPhone!=null and uPhone!='' ">
+			and u_phone= #{uPhone}
+			</if>
+			<if test="uEmail!=null and uEmail!='' ">
+			and u_email= #{uEmail}
+			</if>
+			<if test="uSex!=null and uSex!='' ">
+			and u_sex= #{uSex}
+			</if>
+			<if test="uAge!=null and uAge!='' ">
+			and u_age= #{uAge}
+			</if>
+			<if test="uParentId!=null and uParentId!='' ">
+			and u_parent_id= #{uParentId}
+			</if>
+			<if test="signDay!=null and signDay!='' ">
+			and sign_day= #{signDay}
+			</if>
+			<if test="uRole!=null and uRole!='' ">
+			and u_role= #{uRole}
+			</if>
+			<if test="uWxId!=null and uWxId!='' ">
+			and u_wx_id= #{uWxId}
+			</if>
+			<if test="uQqId!=null and uQqId!='' ">
+			and u_qq_id= #{uQqId}
+			</if>
+			<if test="uSetupTime!=null and uSetupTime!='' ">
+			and u_setup_time= #{uSetupTime}
+			</if>
+			<if test="uUpdateTime!=null and uUpdateTime!='' ">
+			and u_update_time= #{uUpdateTime}
+			</if>
+			<if test="column17!=null and column17!='' ">
+			and Column_17= #{column17}
+			</if>
+			<if test="column18!=null and column18!='' ">
+			and Column_18= #{column18}
+			</if>
+			<if test="column19!=null and column19!='' ">
+			and Column_19= #{column19}
+			</if>
+	</select>
 </mapper>

@@ -1,10 +1,7 @@
 package com.zyx.books.mapper;
 
-import com.zyx.books.model.Users;
-
-import org.apache.ibatis.annotations.Mapper;
-
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.zyx.books.model.Users;
 
 /**
  * <p>
@@ -16,4 +13,9 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface UsersMapper extends BaseMapper<Users> {
 
+	/**
+	 * 查询用户信息
+	 * @return
+	 */
+	public Users selUser(Users users);
 }

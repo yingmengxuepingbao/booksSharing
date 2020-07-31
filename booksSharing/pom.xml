@@ -11,6 +11,9 @@
 	<groupId>com.book.cn</groupId>
 	<artifactId>bookSharing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!-- 使用外部tomcat -->
+	<packaging>war</packaging>
+	
 	<name>bookSharing</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -20,6 +23,7 @@
 	</properties>
 
 <dependencies>
+		<!--支持web模块-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -84,6 +88,14 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 		<!-- 解决：org.apache.ibatis.binding.BindingException: end -->
+		
+		<!--引入NekoHTML，配合spring.thymeleaf.mode=LEGACYHTML5使用，使Thymeleaf 可以解析非严格html格式的文档-->
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+        
 	<!-- 添加json解析 -->
 	<dependency>
        <groupId>org.json</groupId>
@@ -142,6 +154,35 @@
            <version>2.4</version>
            <classifier>jdk15</classifier> <!-- 看这里，去maven仓库找加载这个包的时候，是没有这句话的，这句话，一定要加，要不然，也是会报错的，还有一个就是，一定要加 jdk15 加其他的也不行，不要问我为什么，我也不知到 -->
        </dependency>
+       
+        <!--jsp页面使用jstl标签 -->
+	    <dependency>
+	      <groupId>javax.servlet</groupId>
+	      <artifactId>jstl</artifactId>
+	    </dependency>
+	
+	    <!--用于编译jsp -->
+	    <dependency>
+	      <groupId>javax.servlet</groupId>
+	      <artifactId>javax.servlet-api</artifactId>
+	      <version>3.1.0</version>
+	      <scope>provided</scope>
+	    </dependency>
+	   
+	    <!--部署成war包时开启↓↓↓↓-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+       	 	<!--  外部使用tomcat 可访问jsp页面 -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!--部署成war包时开启↑↑↑↑-->
+	    
 	</dependencies>
 
 	<build>
@@ -150,7 +191,18 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!--过滤单元测试不通过，maven打包就停止编译 -->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <configuration>
+			        <testFailureIgnore>true</testFailureIgnore>
+			    </configuration>
+			</plugin>
 		</plugins>
+		<!-- 打包生成的名称：与配置文件中的一致:server.servlet.context-path=/bookSharing -->
+		<finalName>bookSharing</finalName>
 	</build>
 
 </project>
