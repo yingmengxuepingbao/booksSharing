@@ -32,7 +32,15 @@ public class ShopsController {
 	@Autowired
 	private ShopsService shopsService;
 	
-	
+	/**
+	 *    跳转添加店铺信息
+	 * @return 页面
+	 */
+	@RequestMapping(value = "/toShopsView", method = RequestMethod.POST)
+	@ResponseBody
+	public String toShopsView(){
+		return "/view/book/childrensbooks/cBooksAdd";
+	}
 	/**
 	 * 添加店铺信息
 	 * @param shops 店铺信息

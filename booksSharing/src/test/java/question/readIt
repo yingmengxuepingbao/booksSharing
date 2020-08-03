@@ -1,4 +1,5 @@
 
 访问路径：http://localhost:8080/bookSharing/view/book/childrensbooks/cBooksAdd.html
-
+		 http://localhost:8080/bookSharing/shops/toShopsView
+		 
 登入方法测试：http://localhost:8080/bookSharing/login/userLogin
